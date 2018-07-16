@@ -27,16 +27,24 @@ repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    maven { url 'https://jitpack.io' }
+    // // For some reason Batik 1.9 doesn’t resolve in the above repos
+    // maven { url 'https://repo1.maven.org/maven2' }
 }
 
 dependencies {
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
-    api 'org.apache.commons:commons-math3:3.6.1'
 
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation 'com.google.guava:guava:23.0'
+    // // Use JUnit test framework
+    // // testImplementation group: 'junit', name: 'junit', version: '4.12'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.2.0'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: '5.2.0'
 
-    // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
+    // // testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.+'
+    // // testImplementation group: 'com.github.ttsui', name: 'pending', version: 'master'
+    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.2.0'
+}
+
+test {
+    useJUnitPlatform()
 }
 
