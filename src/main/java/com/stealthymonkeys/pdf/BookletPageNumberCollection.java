@@ -1,7 +1,35 @@
+/*
+ * Copyright © 2018 Stealthy Monkeys Consulting, some rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by the
+ * Free Software Foundation: https://www.gnu.org/licenses/agpl-3.0.en.html
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+ * details.
+ */
+
 package com.stealthymonkeys.pdf;
 
 import java.util.Arrays;
 import java.util.Iterator;
+
+/**
+ * This class manages the page ordering for booklet production.
+ *
+ * <p>
+ * The booklets produced are intended to be printed 4-up duplex, the pages cut in half, the top half placed on the
+ * bottom half, and the stack folded in half.
+ * </p>
+ *
+ * <strong>Note:</strong> page counts not divisible by 8 will be padded out to the nearest 8 with blank pages to
+ * correctly impose them.
+ *
+ * @author Erik Ogan
+ *
+ */
 
 public class BookletPageNumberCollection implements Iterable<Integer> {
 	private int			pages;
@@ -11,11 +39,26 @@ public class BookletPageNumberCollection implements Iterable<Integer> {
 
 	private static final boolean debug = false;
 
+	/**
+	 * Page Number Constructor
+	 *
+	 * @param pageCount
+	 *          The number of printable pages in the source PDF.
+	 */
 	public BookletPageNumberCollection(int pageCount) {
 		pages = pageCount;
 		initPageArray();
 	}
 
+	/**
+	 * Creates an iterator over the page numbers in the order they would be laid out in an n-up imposition.
+	 *
+	 * Positive values are returned for pages in the pageCount, negative values are given for blank pages necessary for
+	 * imposition.
+	 *
+	 * @return An <code>Iterator</code> of page numbers. Positive values for pages existing in the source file, negative
+	 *         values for blank pages necessary for imposition.
+	 */
 	@Override
 	public Iterator<Integer> iterator() {
 		return Arrays.asList(pageArray).iterator();
