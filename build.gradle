@@ -37,6 +37,12 @@ repositories {
 }
 
 dependencies {
+    compile group: 'com.itextpdf', name: 'kernel', version: '7.1.2'
+    compile group: 'com.itextpdf', name: 'io', version: '7.1.2'
+    compile group: 'com.itextpdf', name: 'layout', version: '7.1.2'
+    // // compile group: 'com.itextpdf', name: 'pdfa', version: '7.1.2'
+    // // compile group: 'com.itextpdf', name: 'sign', version: '7.1.2'
+    // // compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.13'
 
     // // Use JUnit test framework
     // // testImplementation group: 'junit', name: 'junit', version: '4.12'
