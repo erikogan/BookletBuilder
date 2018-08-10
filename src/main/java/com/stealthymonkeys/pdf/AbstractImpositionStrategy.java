@@ -15,6 +15,7 @@ package com.stealthymonkeys.pdf;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Iterator;
 
 import com.itextpdf.kernel.geom.PageSize;
@@ -33,6 +34,8 @@ import com.itextpdf.kernel.pdf.xobject.PdfFormXObject;
 public abstract class AbstractImpositionStrategy {
 	protected PdfDocument	in	= null;
 	protected PdfDocument	out	= null;
+
+	private boolean includeInstructions = true;
 
 	/**
 	 * Create a strategy that will read pages from the PDF file <code>inFile</code>, and write a new PDF booklet to
@@ -96,18 +99,11 @@ public abstract class AbstractImpositionStrategy {
 	}
 
 	/**
-	 * Used by the {@link #impose() impose()} method to provide the order of imposed pages.
-	 *
-	 * @return An <code>Iterable</code> of page numbers, in imposition order.
+	 * Disable the inclusion of instruction pages, if the strategy includes them.
 	 */
-	protected abstract Iterable<Integer> getPageNumberIterable();
-
-	/**
-	 * Used by the {@link #impose() impose()} method to control imposition
-	 *
-	 * @return an NupImposer for the <code>impose()</code> method.
-	 */
-	protected abstract NupImposer getNupImposer();
+	public void disableInstructions() {
+		includeInstructions = false;
+	}
 
 	/**
 	 * Performs the imposition, copying pages from the source (resizing and rotating as necessary) and positioning them on
@@ -121,6 +117,8 @@ public abstract class AbstractImpositionStrategy {
 		NupImposer imposer = getNupImposer();
 
 		PageSize imposedPageSize = new PageSize(imposer.getImposedPageSize());
+
+		includeInstructions(imposedPageSize);
 
 		while (pageNumberIterator.hasNext()) {
 			PdfPage page = addNewPage(imposedPageSize);
@@ -141,6 +139,63 @@ public abstract class AbstractImpositionStrategy {
 				imposePage(canvas, copiedPage, location);
 			}
 		}
+
+		in.close();
+		out.close();
+	}
+
+	/**
+	 * Used by the {@link #impose() impose()} method to provide the order of imposed pages.
+	 *
+	 * @return An <code>Iterable</code> of page numbers, in imposition order.
+	 */
+	protected abstract Iterable<Integer> getPageNumberIterable();
+
+	/**
+	 * Used by the {@link #impose() impose()} method to control imposition
+	 *
+	 * @return an NupImposer for the <code>impose()</code> method.
+	 */
+	protected abstract NupImposer getNupImposer();
+
+	/**
+	 * Returns an (optional) PDF of instruction pages to put at the start of the document.
+	 *
+	 * @return an (optional) PDF of instruction pages to put at the start of the document.
+	 * @throws IOException
+	 *           if the instructions cannot be read
+	 */
+	protected PdfDocument getInstructions() throws IOException {
+		return null;
+	}
+
+	/**
+	 * Creates a <code>PdfDocument</code> for a named PDF instructions file
+	 *
+	 * @param name
+	 *          The basename of the instruction file to use
+	 * @return A <code>PdfDocument</code> of the instructions to include
+	 * @throws IOException
+	 *           if the instructions cannot be read.
+	 */
+	protected PdfDocument getInstructionResource(String name) throws IOException {
+		ClassLoader loader = Thread.currentThread().getContextClassLoader();
+		InputStream stream = loader.getResourceAsStream("instructions/" + name + ".pdf");
+		return new PdfDocument(new PdfReader(stream));
+	}
+
+	/**
+	 * @param imposedPageSize
+	 * @throws IOException
+	 */
+	private void includeInstructions(PageSize imposedPageSize) throws IOException {
+		if (!includeInstructions)
+			return;
+		PdfDocument instructions = getInstructions();
+		if (instructions == null)
+			return;
+
+		instructions.copyPagesTo(1, instructions.getNumberOfPages(), out);
 	}
 
 	/**
