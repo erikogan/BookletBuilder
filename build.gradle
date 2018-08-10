@@ -6,19 +6,19 @@
  * user guide available at https://docs.gradle.org/4.3/userguide/java_library_plugin.html
  */
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.8.1'
+ task wrapper(type: Wrapper) {
+  gradleVersion = '2.8.1'
 }
 
 defaultTasks 'eclipse', 'jar', 'shadowJar'
 
 buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.2'
-    }
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.2'
+  }
 }
 
 // Apply the java-library plugin to add support for Java Library
@@ -37,30 +37,30 @@ repositories {
 }
 
 dependencies {
-    compile group: 'com.itextpdf', name: 'kernel', version: '7.1.2'
-    compile group: 'com.itextpdf', name: 'io', version: '7.1.2'
-    compile group: 'com.itextpdf', name: 'layout', version: '7.1.2'
-    // // compile group: 'com.itextpdf', name: 'pdfa', version: '7.1.2'
-    // // compile group: 'com.itextpdf', name: 'sign', version: '7.1.2'
-    // // compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.13'
+  compile group: 'com.itextpdf', name: 'kernel', version: '7.1.2'
+  compile group: 'com.itextpdf', name: 'io', version: '7.1.2'
+  compile group: 'com.itextpdf', name: 'layout', version: '7.1.2'
+  // // compile group: 'com.itextpdf', name: 'pdfa', version: '7.1.2'
+  // // compile group: 'com.itextpdf', name: 'sign', version: '7.1.2'
+  // // compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.13'
 
-    // // Use JUnit test framework
-    // // testImplementation group: 'junit', name: 'junit', version: '4.12'
-    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.2.0'
-    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: '5.2.0'
+  // // Use JUnit test framework
+  // // testImplementation group: 'junit', name: 'junit', version: '4.12'
+  testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.2.0'
+  testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: '5.2.0'
 
-    testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '2.21.0'
-    // // testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.+'
-    // // testImplementation group: 'com.github.ttsui', name: 'pending', version: 'master'
-    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.2.0'
+  testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '2.21.0'
+  // // testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.+'
+  // // testImplementation group: 'com.github.ttsui', name: 'pending', version: 'master'
+  testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.2.0'
 }
 
 test {
-    useJUnitPlatform()
+  useJUnitPlatform()
 }
 
 javadoc {
-    source = sourceSets.main.allJava
-    classpath = configurations.compile
-    options.addBooleanOption('html5', true)
+  source = sourceSets.main.allJava
+  classpath = configurations.compile
+  options.addBooleanOption('html5', true)
 }
