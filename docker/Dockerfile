@@ -1,5 +1,4 @@
-#FROM openjdk:8-alpine3.8
-FROM openjdk:jre-slim
+FROM openjdk:8-alpine3.8
 
 ARG GIT_SHA1="CUSTOM BUILD"
 
