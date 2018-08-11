@@ -38,20 +38,16 @@ repositories {
 
 dependencies {
   compile group: 'com.itextpdf', name: 'kernel', version: '7.1.2'
-  compile group: 'com.itextpdf', name: 'io', version: '7.1.2'
-  compile group: 'com.itextpdf', name: 'layout', version: '7.1.2'
-  // // compile group: 'com.itextpdf', name: 'pdfa', version: '7.1.2'
-  // // compile group: 'com.itextpdf', name: 'sign', version: '7.1.2'
-  // // compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.13'
+  // compile group: 'com.itextpdf', name: 'io', version: '7.1.2'
+  // compile group: 'com.itextpdf', name: 'layout', version: '7.1.2'
+  // compile group: 'com.itextpdf', name: 'pdfa', version: '7.1.2'
+  // compile group: 'com.itextpdf', name: 'sign', version: '7.1.2'
 
-  // // Use JUnit test framework
-  // // testImplementation group: 'junit', name: 'junit', version: '4.12'
+  // Use JUnit test framework
   testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.2.0'
   testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: '5.2.0'
 
   testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '2.21.0'
-  // // testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.+'
-  // // testImplementation group: 'com.github.ttsui', name: 'pending', version: 'master'
   testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.2.0'
 }
 
