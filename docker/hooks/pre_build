@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -x
+
+BASE_IMAGE=`grep '^FROM' Dockerfile | awk '{print $2}'`
+
+DIR=$PWD/..
+
+docker run -v $DIR:/app -w /app $BASE_IMAGE ./gradlew shadowJar
