@@ -2,5 +2,5 @@
 
 set -x
 
-docker tag $IMAGE_NAME $DOCKER_REPO:$SOURCE_COMMIT
-docker push $DOCKER_REPO:$SOURCE_COMMIT
+docker tag $IMAGE_NAME $DOCKER_REPO:$GIT_SHA1
+docker push $DOCKER_REPO:$GIT_SHA1
