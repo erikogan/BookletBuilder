@@ -2,6 +2,6 @@
 
 set -x
 
-docker build \
+docker pull $DOCKER_REPO:$GIT_SHA1 || docker build \
   --build-arg GIT_SHA1="$GIT_SHA1" \
   -t ${IMAGE_NAME} -f ./Dockerfile ..
