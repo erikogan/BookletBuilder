@@ -13,7 +13,7 @@ buildscript {
     jcenter()
   }
   dependencies {
-    classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.2'
+    classpath group: 'com.github.jengelman.gradle.plugins', name: 'shadow', version: '2.0.4'
   }
 }
 
