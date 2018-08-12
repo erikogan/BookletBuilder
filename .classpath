@@ -24,11 +24,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/layout/7.1.2/2c2e4e653ac7eeb650321cfcf73977d43350c131/layout-7.1.2.jar" sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/layout/7.1.2/36279c292ad54d7cca4d01d67dd4cfd8d167bf93/layout-7.1.2-sources.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/kernel/7.1.2/92ea2cf386a32cb7ecc56ac36ffd75a3f78afc8b/kernel-7.1.2.jar" sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/kernel/7.1.2/6ef77ccae345bef3195637e1bbeed5ae7b699eb5/kernel-7.1.2-sources.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
