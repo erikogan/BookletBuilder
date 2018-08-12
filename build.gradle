@@ -6,10 +6,6 @@
  * user guide available at https://docs.gradle.org/4.3/userguide/java_library_plugin.html
  */
 
-task wrapper(type: Wrapper) {
-  gradleVersion = '2.8.1'
-}
-
 defaultTasks 'eclipse', 'jar', 'shadowJar'
 
 buildscript {
