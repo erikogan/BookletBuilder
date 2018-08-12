@@ -21,6 +21,14 @@ import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.PdfWriter;
 
 /**
+ * <p>
+ * A Strategy that produces a 4-up, booklet ordered PDF from a source PDF.
+ * </p>
+ *
+ * <p>
+ * Uses {@link FourUpImposer} and {@link BookletPageNumberCollection}.
+ * </p>
+ *
  * @author Erik Ogan
  *
  */

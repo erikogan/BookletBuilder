@@ -21,6 +21,12 @@ import javax.swing.JFrame;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
+ * Simple interface to the BookletBuilder library. At the moment, this presumes you wish to make a 4-up duplex
+ * booklet-ordered file. Files can be provided on the command-line OR Swing Open and Save dialogs will be used to prompt
+ * the user.
+ *
+ * This class exists mostly so that the JAR file has a simple Main-Class that non-savvy users can run.
+ *
  * @author Erik Ogan
  *
  */
@@ -30,9 +36,12 @@ public class BookletBuilder {
 	private boolean	instructions	= true;
 
 	/**
-	 * @param outFile
 	 * @param inFile
+	 *          String path to the input PDF file. Can be null.
+	 * @param outFile
+	 *          String path to the output PDF file. Can be null.
 	 * @param instructions
+	 *          boolean indicating whether assembly instructions should be included in the resulting file.
 	 *
 	 */
 	public BookletBuilder(String inFile, String outFile, boolean instructions) {
@@ -47,6 +56,15 @@ public class BookletBuilder {
 		}
 	}
 
+	/**
+	 * Builds the booklet PDF file from the input PDF file, optionally including assembly instructions. If either file
+	 * name was null at construction, the user will be prompted for locations via Swing JFileChooser methods.
+	 *
+	 * @throws FileNotFoundException
+	 *           If either the input file or the path to the output file does not exist.
+	 * @throws IOException
+	 *           If the input file cannot be read or the output file cannot be written.
+	 */
 	public void build() throws FileNotFoundException, IOException {
 		JFrame frame = null;
 		JFileChooser fileChooser = null;
@@ -85,6 +103,7 @@ public class BookletBuilder {
 		}
 
 		AbstractImpositionStrategy strategy = new FourUpBookletStrategy(in, out);
+
 		if (!instructions) {
 			strategy.disableInstructions();
 		}
@@ -93,8 +112,12 @@ public class BookletBuilder {
 
 	/**
 	 * @param args
-	 * @throws IOException
+	 *          up to 3 strings containing, in order: a literal [-]-skipInstructions, the input PDF file path, and the
+	 *          output PDF file path.
 	 * @throws FileNotFoundException
+	 *           If either the input file or the path to the output file does not exist.
+	 * @throws IOException
+	 *           If the input file cannot be read or the output file cannot be written.
 	 */
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 		boolean instructions = true;

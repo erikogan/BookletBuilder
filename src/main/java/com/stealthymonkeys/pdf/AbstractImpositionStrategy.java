@@ -32,8 +32,15 @@ import com.itextpdf.kernel.pdf.xobject.PdfFormXObject;
  *
  */
 public abstract class AbstractImpositionStrategy {
-	protected PdfDocument	in	= null;
-	protected PdfDocument	out	= null;
+	/**
+	 * The original, input PDF document
+	 */
+	protected PdfDocument in = null;
+
+	/**
+	 * The imposed, output PDF document
+	 */
+	protected PdfDocument out = null;
 
 	private boolean includeInstructions = true;
 
@@ -154,14 +161,14 @@ public abstract class AbstractImpositionStrategy {
 	/**
 	 * Used by the {@link #impose() impose()} method to control imposition
 	 *
-	 * @return an NupImposer for the <code>impose()</code> method.
+	 * @return An NupImposer for the <code>impose()</code> method.
 	 */
 	protected abstract NupImposer getNupImposer();
 
 	/**
 	 * Returns an (optional) PDF of instruction pages to put at the start of the document.
 	 *
-	 * @return an (optional) PDF of instruction pages to put at the start of the document.
+	 * @return An (optional) PDF of instruction pages to put at the start of the document.
 	 * @throws IOException
 	 *           if the instructions cannot be read
 	 */
