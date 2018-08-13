@@ -40,6 +40,18 @@ inclusion of printing instructions on the first two pages:
 If the <in_file> and/or the <out_file> are not provided, the GUI interface
 will be used to prompt for the missing information.
 
+#### Docker
+
+If you prefer, the application is available as a Docker image, and can be invoked easily:
+
+```
+% docker run -v $PWD:/data erikogan/bookletbuilder /data/in.pdf /data/out.pdf
+```
+
+It is recommended that you supply both arguments to the container. It is
+likely possible to forward X11 connections out of the container to use the
+GUI, but that usage is left as an exercise to the reader.
+
 ### In Java Code
 
 The library tries to abstract as much away for users as possible. The minimum
