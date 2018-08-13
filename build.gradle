@@ -32,6 +32,11 @@ repositories {
     // maven { url 'https://repo1.maven.org/maven2' }
 }
 
+compileJava {
+  sourceCompatibility = '1.8'
+  targetCompatibility = '1.8'
+}
+
 dependencies {
   compile group: 'com.itextpdf', name: 'kernel', version: '7.1.2'
   // compile group: 'com.itextpdf', name: 'io', version: '7.1.2'
@@ -69,4 +74,89 @@ javadoc {
   source = sourceSets.main.allJava
   classpath = configurations.compile
   options.addBooleanOption('html5', true)
+}
+
+// Signing
+apply plugin: 'signing'
+signing {
+  // BouncyCastle OpenPGP is not able to decrypt the new secret key generated
+  // by GnuPG 2.2.8, even when it is imported into secring.gpg, despite being
+  // able to decrypt older ones. Instead of fighting with this, I have opted
+  // to force the signing plugin to use the gpg (actually gpg2) command, which
+  // works around this problem. However, that does not allow one to specify a
+  // key to sign with. I worked around THAT by adding a gpg2 script higher in
+  // my path (~/bin) that exec’s gpg with a --default-key
+  // maven@stealthymonkeys.com option.
+  useGpgCmd()
+  sign configurations.archives
+}
+
+// Deploying
+apply plugin: 'maven'
+
+// Add Javadoc JAR and sources JAR to artifact
+task javadocJar(type: Jar) {
+  classifier = 'javadoc'
+  from javadoc
+}
+task sourcesJar(type: Jar) {
+  classifier = 'sources'
+  from sourceSets.main.allSource
+}
+artifacts {
+  archives javadocJar, sourcesJar
+}
+
+// Configure group ID, artifact ID, and version
+group = "com.stealthymonkeys.pdf"
+archivesBaseName = "booklet-builder"
+version = "0.1.1" // This should come from somewhere external
+
+// Build, sign, and upload
+uploadArchives {
+  repositories {
+    mavenDeployer {
+      // Sign POM
+      beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+      // Destination
+      repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+        authentication(userName: ossrhUsername, password: ossrhPassword)
+      }
+      snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+        authentication(userName: ossrhUsername, password: ossrhPassword)
+      }
+
+      // Add required metadata to POM
+      pom.project {
+        name 'BookletBuilder'
+        packaging 'jar'
+        description 'Library for building booklet impositions from PDFs'
+        url 'https://github.com/erikogan/BookletBuilder'
+
+        scm {
+          connection 'scm:git:git://github.com/erikogan/BookletBuilder.git'
+          developerConnection 'scm:git:ssh://github.com/erikogan/BookletBuilder.git'
+          url 'https://github.com/erikogan/BookletBuilder/tree/master'
+        }
+
+        licenses {
+          license {
+            name 'GNU Affero General Public License version 3'
+            url 'https://www.gnu.org/licenses/agpl-3.0.en.html'
+          }
+        }
+
+        developers {
+          developer {
+            id 'erikogan'
+            name 'Erik Ogan'
+            email 'erik@stealthymonkeys.com'
+            organization 'Stealthy Monkeys Consulting'
+            organizationUrl 'https://stealthymonkeys.com'
+          }
+        }
+      }
+    }
+  }
 }
