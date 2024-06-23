@@ -1,0 +1,46 @@
+@page {
+  size: letter;
+  margin: 0.5in;
+  counter-increment: page;
+}
+
+.page {
+  break-before: page;
+  .inner {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    border: 3pt dotted #000;
+  }
+}
+
+#page-1 .inner {
+  background-color: #000;
+  color: #fff;
+  border-color: #fff;
+}
+#page-2 .inner {
+  background-color: #d10000;
+  color: #fff;
+  border-color: #fff;
+}
+#page-3 .inner { background-color: #ff6622; }
+#page-4 .inner { background-color: #ffda21; }
+#page-5 .inner { background-color: #33dd00; }
+#page-6 .inner {
+  background-color: #1133cc;
+  color: #fff;
+  border-color: #fff;
+}
+#page-7 .inner {
+  background-color: #220066;
+  color: #fff;
+  border-color: #fff;
+}
+#page-8 .inner {
+  background-color: #330044;
+  color: #fff;
+  border-color: #fff;
+}

@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.PdfWriter;
@@ -102,7 +103,14 @@ public class FourUpBookletStrategy extends AbstractImpositionStrategy {
 
 	private void finishBuild() {
 		pages = new BookletPageNumberCollection(in.getNumberOfPages());
-		imposer = new FourUpImposer(in.getDefaultPageSize());
+		imposer = new FourUpImposer(getPageSize());
+	}
+
+	private Rectangle getPageSize() {
+		// So it turns out this is not the default page size for the document but a global default (of A4)
+		// return in.getDefaultPageSize();
+		// For now, assume the first page is indicative of the whole document
+		return in.getFirstPage().getPageSize();
 	}
 
 	@Override
