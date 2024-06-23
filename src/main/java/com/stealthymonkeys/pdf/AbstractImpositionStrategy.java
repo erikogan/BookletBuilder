@@ -234,6 +234,6 @@ public abstract class AbstractImpositionStrategy {
 	}
 
 	protected void imposePage(PdfCanvas canvas, PdfFormXObject copiedPage, Point location) {
-		canvas.addXObject(copiedPage, (float) location.getX(), (float) location.getY());
+		canvas.addXObjectAt(copiedPage, (float) location.getX(), (float) location.getY());
 	}
 }

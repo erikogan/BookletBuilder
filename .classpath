@@ -35,32 +35,22 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-21/"/>
-	<classpathentry sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/kernel/7.2.6/4526c886f49e065844c1ccae750580d745476987/kernel-7.2.6-sources.jar" kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/kernel/7.2.6/41de6f7e553ac1ff4a3183d9b99f2b4e19fde51/kernel-7.2.6.jar">
+	<classpathentry sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/kernel/8.0.4/8a675a3115743a972572a73aa54089bbf2bc6a39/kernel-8.0.4-sources.jar" kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/kernel/8.0.4/6df26260ce5229e6f6dbda4a88f1aeaf04224440/kernel-8.0.4.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/io/7.2.6/368be3aa218eabba4da9822856d96aa25b5b83fa/io-7.2.6-sources.jar" kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/io/7.2.6/399b60ac0d55b84c14da76219886f7cb25754e00/io-7.2.6.jar">
+	<classpathentry sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/io/8.0.4/eabd8ed05961160831a5de9d6280d05ba62a4c47/io-8.0.4-sources.jar" kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/io/8.0.4/ac1db3541fa03a58ff9b630976c49d6da6cd4ac7/io-8.0.4.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcpkix-jdk18on/1.75/e50746007d8f1ccd9e49180af87811a1e9ce432d/bcpkix-jdk18on-1.75-sources.jar" kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcpkix-jdk18on/1.75/5adfef8a71a0933454739264b56283cc73dd2383/bcpkix-jdk18on-1.75.jar">
+	<classpathentry sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/bouncy-castle-connector/8.0.4/d1edb8d09d4ad1491584fbd3f736109fc3aa4dae/bouncy-castle-connector-8.0.4-sources.jar" kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/bouncy-castle-connector/8.0.4/7ff86675dc65f9281e32b8d446c673a78a61d71f/bouncy-castle-connector-8.0.4.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcutil-jdk18on/1.75/47713fc5d0766ab47b7dae237869ae102ed7f103/bcutil-jdk18on-1.75-sources.jar" kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcutil-jdk18on/1.75/f58f4bbec8a40137bbb04f6174cd164fae0776b/bcutil-jdk18on-1.75.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk18on/1.75/824c0265a84d1ec214c3513dc14fc7990bb4f70d/bcprov-jdk18on-1.75-sources.jar" kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk18on/1.75/fd9638f6468e934991c56242d0da2ae38890c2a4/bcprov-jdk18on-1.75.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/commons/7.2.6/90abc82ee0c3a840eb2c7e1bca122608e5770b49/commons-7.2.6-sources.jar" kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/commons/7.2.6/24f2b41ebb2855f3c5169df5051d77502d2da633/commons-7.2.6.jar">
+	<classpathentry sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/commons/8.0.4/2285ff14b8df8af41b24476cf0b2fcbd596b6b9b/commons-8.0.4-sources.jar" kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/commons/8.0.4/cf80f3a9403d10aac34652882ad45f200fcc236b/commons-8.0.4.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
