@@ -35,17 +35,37 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-21/"/>
-	<classpathentry sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/kernel/7.1.2/6ef77ccae345bef3195637e1bbeed5ae7b699eb5/kernel-7.1.2-sources.jar" kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/kernel/7.1.2/92ea2cf386a32cb7ecc56ac36ffd75a3f78afc8b/kernel-7.1.2.jar">
+	<classpathentry sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/kernel/7.2.6/4526c886f49e065844c1ccae750580d745476987/kernel-7.2.6-sources.jar" kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/kernel/7.2.6/41de6f7e553ac1ff4a3183d9b99f2b4e19fde51/kernel-7.2.6.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/io/7.1.2/b4e94c42520513f2e16b1d8018633691ca71ff46/io-7.1.2-sources.jar" kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/io/7.1.2/15dd3ad4a7918d793960beb3fffdfbe57df5830b/io-7.1.2.jar">
+	<classpathentry sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/io/7.2.6/368be3aa218eabba4da9822856d96aa25b5b83fa/io-7.2.6-sources.jar" kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/io/7.2.6/399b60ac0d55b84c14da76219886f7cb25754e00/io-7.2.6.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.13/96e785df399a4e1a6c030877097807b7e18520cc/slf4j-api-1.7.13-sources.jar" kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.13/7fcf30c25b8f4a9379b9dad0d3f487b25272c026/slf4j-api-1.7.13.jar">
+	<classpathentry sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcpkix-jdk18on/1.75/e50746007d8f1ccd9e49180af87811a1e9ce432d/bcpkix-jdk18on-1.75-sources.jar" kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcpkix-jdk18on/1.75/5adfef8a71a0933454739264b56283cc73dd2383/bcpkix-jdk18on-1.75.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcutil-jdk18on/1.75/47713fc5d0766ab47b7dae237869ae102ed7f103/bcutil-jdk18on-1.75-sources.jar" kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcutil-jdk18on/1.75/f58f4bbec8a40137bbb04f6174cd164fae0776b/bcutil-jdk18on-1.75.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk18on/1.75/824c0265a84d1ec214c3513dc14fc7990bb4f70d/bcprov-jdk18on-1.75-sources.jar" kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk18on/1.75/fd9638f6468e934991c56242d0da2ae38890c2a4/bcprov-jdk18on-1.75.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/commons/7.2.6/90abc82ee0c3a840eb2c7e1bca122608e5770b49/commons-7.2.6-sources.jar" kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/com.itextpdf/commons/7.2.6/24f2b41ebb2855f3c5169df5051d77502d2da633/commons-7.2.6.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/Users/erik/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.36/ae9c1aae0033af915cfa75d850eb9d880f21a701/slf4j-api-1.7.36-sources.jar" kind="lib" path="/Users/erik/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.36/6c62681a2f655b49963a5983b8b0950a6120ae14/slf4j-api-1.7.36.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
