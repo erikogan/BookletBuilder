@@ -6,27 +6,20 @@
  * user guide available at https://docs.gradle.org/4.3/userguide/java_library_plugin.html
  */
 
-defaultTasks 'eclipse', 'jar', 'shadowJar'
-
-buildscript {
-  repositories {
-    jcenter()
-  }
-  dependencies {
-    classpath group: 'com.github.jengelman.gradle.plugins', name: 'shadow', version: '2.0.4'
-  }
+plugins {
+  id "base"
+  id "java-library"
+  id "eclipse"
+  id "com.github.johnrengelman.shadow" version "8.1.1"
+  id "signing"
+  id "maven-publish"
 }
 
-// Apply the java-library plugin to add support for Java Library
-apply plugin: 'java-library'
-apply plugin: 'eclipse'
-apply plugin: 'com.github.johnrengelman.shadow'
+defaultTasks 'eclipse', 'jar', 'shadowJar'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
-    // Use jcenter for resolving your dependencies.
-    // You can declare any Maven/Ivy/file repository here.
-    jcenter()
+    mavenCentral()
     maven { url 'https://jitpack.io' }
     // // For some reason Batik 1.9 doesn’t resolve in the above repos
     // maven { url 'https://repo1.maven.org/maven2' }
@@ -38,11 +31,11 @@ compileJava {
 }
 
 dependencies {
-  compile group: 'com.itextpdf', name: 'kernel', version: '7.1.2'
-  // compile group: 'com.itextpdf', name: 'io', version: '7.1.2'
-  // compile group: 'com.itextpdf', name: 'layout', version: '7.1.2'
-  // compile group: 'com.itextpdf', name: 'pdfa', version: '7.1.2'
-  // compile group: 'com.itextpdf', name: 'sign', version: '7.1.2'
+  implementation group: 'com.itextpdf', name: 'kernel', version: '7.1.2'
+  // implementation group: 'com.itextpdf', name: 'io', version: '7.1.2'
+  // implementation group: 'com.itextpdf', name: 'layout', version: '7.1.2'
+  // implementation group: 'com.itextpdf', name: 'pdfa', version: '7.1.2'
+  // implementation group: 'com.itextpdf', name: 'sign', version: '7.1.2'
 
   // Use JUnit test framework
   testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.2.0'
@@ -72,7 +65,7 @@ test {
 
 javadoc {
   source = sourceSets.main.allJava
-  classpath = configurations.compile
+//  classpath = configurations.implementation
   options.addBooleanOption('html5', true)
 }
 
@@ -91,71 +84,68 @@ signing {
   sign configurations.archives
 }
 
-// Deploying
-apply plugin: 'maven'
-
 // Add Javadoc JAR and sources JAR to artifact
 task javadocJar(type: Jar) {
-  classifier = 'javadoc'
+  archiveClassifier = 'javadoc'
   from javadoc
 }
 task sourcesJar(type: Jar) {
-  classifier = 'sources'
+  archiveClassifier = 'sources'
   from sourceSets.main.allSource
 }
 artifacts {
   archives javadocJar, sourcesJar
 }
 
+base {
+  archivesName = "booklet-builder"
+}
+
 // Configure group ID, artifact ID, and version
 group = "com.stealthymonkeys.pdf"
-archivesBaseName = "booklet-builder"
-version = "0.1.1" // This should come from somewhere external
+version = "0.2.0" // This should come from somewhere external
 
-// Build, sign, and upload
-uploadArchives {
-  repositories {
-    mavenDeployer {
-      // Sign POM
-      beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-      // Destination
-      repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-        authentication(userName: findProperty('ossrhUsername'), password: findProperty('ossrhPassword'))
-      }
-      snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-        authentication(userName: findProperty('ossrhUsername'), password: findProperty('ossrhPassword'))
-      }
-
-      // Add required metadata to POM
-      pom.project {
-        name 'BookletBuilder'
-        packaging 'jar'
-        description 'Library for building booklet impositions from PDFs'
-        url 'https://github.com/erikogan/BookletBuilder'
+publishing {
+  publications {
+    bookletBuilder(MavenPublication) {
+      from components.java
+      pom {
+        name = "Booklet Builder"
+        description = "Library for building booklet impositions from full-sized PDFs"
+        url = "https://github.com/erikogan/BookletBuilder"
 
         scm {
-          connection 'scm:git:git://github.com/erikogan/BookletBuilder.git'
-          developerConnection 'scm:git:ssh://github.com/erikogan/BookletBuilder.git'
-          url 'https://github.com/erikogan/BookletBuilder/tree/master'
+          connection = 'scm:git:git://github.com/erikogan/BookletBuilder.git'
+          developerConnection = 'scm:git:ssh://github.com/erikogan/BookletBuilder.git'
+          url = 'https://github.com/erikogan/BookletBuilder/tree/master'
         }
 
         licenses {
           license {
-            name 'GNU Affero General Public License version 3'
-            url 'https://www.gnu.org/licenses/agpl-3.0.en.html'
+            name = 'GNU Affero General Public License version 3'
+            url = 'https://www.gnu.org/licenses/agpl-3.0.en.html'
           }
         }
 
         developers {
           developer {
-            id 'erikogan'
-            name 'Erik Ogan'
-            email 'erik@stealthymonkeys.com'
-            organization 'Stealthy Monkeys Consulting'
-            organizationUrl 'https://stealthymonkeys.com'
+            id = 'erikogan'
+            name = 'Erik Ogan'
+            email = 'erik@stealthymonkeys.com'
+            organization = 'Stealthy Monkeys Consulting'
+            organizationUrl = 'https://stealthymonkeys.com'
           }
         }
+      }
+    }
+  }
+
+  repositories {
+    maven {
+      url "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+      credentials {
+        username = findProperty("ossrhUsername")
+        password = findProperty("ossrhPassword")
       }
     }
   }
