@@ -8,7 +8,7 @@ can be run as a standalone application or as a library in other tools.
 At the moment, the tool only supports a duplex, 4-up imposition where the
 pages are cut, stacked and folded:
 
-![4-step process](https://raw.githubusercontent.com/erikogan/BookletBuilder/master/src/main/resources/instructions/steps.png)
+![4-step process](https://raw.githubusercontent.com/erikogan/BookletBuilder/main/src/main/resources/instructions/steps.png)
 
 ## Usage
 
@@ -73,7 +73,7 @@ public class BookletBuilderExample {
 }
 ```
 
-You might also check out [BookletBuilder.java](https://github.com/erikogan/BookletBuilder/blob/master/src/main/java/com/stealthymonkeys/pdf/BookletBuilder.java)
+You might also check out [BookletBuilder.java](https://github.com/erikogan/BookletBuilder/blob/main/src/main/java/com/stealthymonkeys/pdf/BookletBuilder.java)
 for a slightly more complex example.
 
 Once there are multiple imposition Strategies we will also include an Abstract

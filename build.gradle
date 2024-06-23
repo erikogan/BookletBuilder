@@ -117,7 +117,7 @@ publishing {
         scm {
           connection = 'scm:git:git://github.com/erikogan/BookletBuilder.git'
           developerConnection = 'scm:git:ssh://github.com/erikogan/BookletBuilder.git'
-          url = 'https://github.com/erikogan/BookletBuilder/tree/master'
+          url = 'https://github.com/erikogan/BookletBuilder/tree/main'
         }
 
         licenses {
